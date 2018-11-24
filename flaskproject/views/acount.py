@@ -1,4 +1,4 @@
-from flask import Blueprint,render_template,abort
+from flask import Blueprint,render_template,abort 
 ac = Blueprint('ac',__name__)
 
 @ac.route('/')
@@ -9,7 +9,7 @@ def a():
 def acount():
 	
 	return render_template('acount.html')
-@ac.route('/ind')
+@ac.route('/ind' ,endpoint='ind')
 def ind():
 	return render_template('base.html')
 	#return 'ahhaha'
