@@ -8,7 +8,11 @@ def a():
 @ac.route('/acount')
 def acount():
 	
-	return 'ahhaha'
+	return render_template('acount.html')
+@ac.route('/ind')
+def ind():
+	return render_template('base.html')
+	#return 'ahhaha'
 	
 @ac.errorhandler(404)
 def page_not_found(error):
