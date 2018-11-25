@@ -51,5 +51,5 @@ def air(pname):
 	if not data:
 		return render_template('air.html')
 	print(pname,data)
-	return render_template('air.html',d=data[1])
+	return render_template('air.html',d=data[-1])
 	
