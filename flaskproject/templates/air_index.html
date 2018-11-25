@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block base %}
+ <div class = 'container-fluid'>
+  <div class = 'container '>
+   
+<div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title text-center ">这是一个云记事本（测试）</h3>
+		<p  class=" text-right" data-toggle="modal" data-target=".bs-example-modal-sm">tips</p>
+
+	<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+		<div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+		<p class='text-info'> 地址栏'air/'后输入任意字母回车即可打开,输入文本内容后五秒即可保存，下次只需打开此地址即可查看内容
+    </div>
+  </div>
+</div>
+      </div>
+      <div class="panel-body  ">
+	  
+        <div class="form container-fluid " >
+  <div class="form-group col-md-6 col-md-offset-3">
+    <label class="sr-only" for="exampleInputAmount">asdf</label>
+    <div class="input-group">
+      <div class="input-group-addon">{{ url_for('air_note.air') }}</div>
+      <input id='new_path' type="text" class="form-control" id="exampleInputAmount" placeholder="输入你的地址">
+      
+    </div>
+  </div>
+  
+</div><div class="  col-md-2 col-md-offset-5 col--sm-1 col--sm-offset-5">
+<button id='path_go' type="submit" class="btn btn-primary btn-group btn-group-justified ">ENTER</button>
+      </div> </div>
+    </div>
+</div></div>
+
+
+
+ <script>
+     $('#path_go').on('click',function(){
+	 //window.location.href('http://43.226.38.241/air/'+$('#new_path').val());
+	 $(location).prop('href','/air/'+$('#new_path').val())
+	 //$(location).prop('href','http://43.226.38.241/air/'+$('#new_path').val())
+	 })
+    </script>
+{% endblock %}

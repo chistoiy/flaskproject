@@ -18,10 +18,16 @@ def is_to_create_table():        #这个函数用来判断表是否存在
 		sql = "create table air_note(id INT NOT NULL AUTO_INCREMENT primary key,pname char(20),context text)"
 		cursor.execute(sql)
 		print('创建数据库air_note成功')
+
 		#return 0        #不存在返回0
+@air_note.route('/air/',methods=['GET'],endpoint='air')
+def air():
+	if request.method=='POST':
+		return 'haha'
+	return render_template('air_index.html')
 
 @air_note.route('/air/<pname>',methods=['GET','POST'])
-def air(pname):
+def air_subpath(pname):
 	conn=pymysql.Connection(host='localhost',port=3306,user='root',passwd='chis1chang',db='t1',charset='utf8')
 	
 	cursor = conn.cursor()
