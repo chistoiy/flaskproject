@@ -1,11 +1,14 @@
 from flask import Flask,render_template
 from .views.acount import ac
+from .views.air_note import air_note,is_to_create_table
 def create_app():
 
 
 	app = Flask(__name__)
 	
 	app.register_blueprint(ac)
+	app.register_blueprint(air_note)
+	is_to_create_table()
 	#app.register_blueprint(uc,url_profix='/xxx'),相当于访问这个url时，这一组url均为/xxx/list和/xxx/detail
 	#@app.before_request
 	#def xxx():

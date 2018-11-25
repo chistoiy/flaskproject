@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block base %}
+ <div class = 'container-fluid'>
+  <div class = 'container '>
+<textarea id='air_note' class="form-control" rows="20" autofocus placeholder='这是{{ pa }}的页面' >{{ d }}</textarea>
+</div></div>
+
+
+
+ <script>
+     $timer='';
+        
+		function sendContext(){
+		$.ajax({
+				url:window.location.pathname,
+				type:'POST',
+				data:{
+				'a':$('#air_note').val(),
+				},
+				success:function(data){console.log(data)}	
+			})
+		}
+		$('#air_note').on('input propertychange', function() {
+			//console.log($(this).val())
+			if($timer){
+				clearTimeout($timer);}
+				$timer = setTimeout(sendContext,5000);
+        });
+			
+		
+
+    </script>
+{% endblock %}
