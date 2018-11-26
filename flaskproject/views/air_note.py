@@ -99,14 +99,14 @@ def air_subpath(pname):
 			cursor.execute('update air_note  set lock_path = %s where pname=%s;',(lock_path,pname))
 			conn.commit()
 			
-			
-			data = cursor.execute('select * from air_note where lock_path=%s',(lock_path))
-			data =cursor.fetchone()
-			dic['lock']=True
-			dic['pname']=lock_path
-			dic['context']=data[2]
+			return redirect('/air/s/%s'%lock_path)
+			#data = cursor.execute('select * from air_note where lock_path=%s',(lock_path))
+			#data =cursor.fetchone()
+			#dic['lock']=True
+			#dic['pname']=lock_path
+			#dic['context']=data[2]
 			#print(dic)
-			return render_template('air.html',**dic,)
+			#return render_template('air.html',**dic,)
 	else:
 		print('aaaa')
 		a,lock_path= pname.rsplit('/')
