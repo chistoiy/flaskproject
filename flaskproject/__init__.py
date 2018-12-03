@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*
 from flask import Flask,render_template
 from .views.acount import ac
 from .views.air_note import air_note,is_to_create_table
