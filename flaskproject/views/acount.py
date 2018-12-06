@@ -3,7 +3,7 @@ ac = Blueprint('ac',__name__)
 
 @ac.route('/')
 def a():
-	return '我宝莉又回来了，谁都管不住我'
+	return render_template('index.html')
 
 @ac.route('/acount')
 def acount():

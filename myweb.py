@@ -5,4 +5,4 @@ app = create_app()
 
 if __name__ == '__main__':
 	
-	app.run(host='172.17.255.83',port=5000)
+	app.run(host='localhost',port=5000)
