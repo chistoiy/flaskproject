@@ -35,18 +35,17 @@ def wchat():
     if request.method == 'POST':
         #这里改写你在微信公众平台里输入的token
         token = '123456'
-        #获取输入参数
-         
-        dict_data = xmltodict.parse(request.get_data()) 
+        dict_data = xmltodict.parse(request.get_data())
+        print(dict_data)		
         dict_data = xmltodict['xml']['MsgType'] 
         if msg_type =='text':
             content = dict_data['xml']['Content']
-        resp_data={'xml':{"ToUserName":dict_data['xml']['FromUserName'],
-'FromUserName': dict_data['xml']['ToUserName'],
-'CreateTime': int(time.time()),
-'MsgType':'text',
-'Content':content,}}
-        return xmltpdict.unparse(resp_data)
+            resp_data={'xml':{"ToUserName":dict_data['xml']['FromUserName'],
+                       'FromUserName': dict_data['xml']['ToUserName'],
+                       'CreateTime': int(time.time()),
+                       'MsgType':'text',
+                       'Content':content,}}
+            return xmltpdict.unparse(resp_data)
 		
 
 
