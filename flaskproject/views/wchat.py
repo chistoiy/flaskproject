@@ -2,6 +2,7 @@ from flask import Flask,render_template,request,Blueprint,redirect
 import pymysql
 import re,random,string
 import hashlib
+import xmltodict,time
 wc = Blueprint('wchat',__name__)
 
  
@@ -31,6 +32,22 @@ def wchat():
             return echostr
         else:
             return ""
+    if request.method == 'POST':
+        #这里改写你在微信公众平台里输入的token
+        token = '123456'
+        #获取输入参数
+         
+        dict_data = xmltodict.parse(request.get_data()) 
+        dict_data = xmltodict['xml']['MsgType'] 
+        if msg_type =='text':
+            content = dict_data['xml']['Content']
+        resp_data={'xml':{"ToUserName":dict_data['xml']['FromUserName'],
+'FromUserName': dict_data['xml']['ToUserName'],
+'CreateTime': int(time.time()),
+'MsgType':'text',
+'Content':content,}}
+        return xmltpdict.unparse(resp_data)
+		
 
 
  
