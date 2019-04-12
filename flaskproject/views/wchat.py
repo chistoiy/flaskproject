@@ -6,7 +6,7 @@ wchat = Blueprint('wchat',__name__)
  
  
 		
-@air_note.route('/wchat/',methods=['GET'],endpoint='wchat')
+@wchat.route('/wchat/',methods=['GET'],endpoint='wchat')
 def wchat():
 	if request.method=='GET':
 		return 'haha'
