@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*
 from flask import Flask,render_template
 from .views.acount import ac
-from .views.wchat import wchat
+from .views.wchat import wc
 from .views.air_note import air_note,is_to_create_table
 def create_app():
 
@@ -10,7 +10,7 @@ def create_app():
 	
 	app.register_blueprint(ac)
 	app.register_blueprint(air_note)
-	app.register_blueprint(wchat)
+	app.register_blueprint(wc)
 	is_to_create_table()
 	#app.register_blueprint(uc,url_profix='/xxx'),相当于访问这个url时，这一组url均为/xxx/list和/xxx/detail
 	#@app.before_request
