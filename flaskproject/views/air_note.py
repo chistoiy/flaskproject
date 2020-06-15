@@ -4,7 +4,7 @@ import re,random,string
 air_note = Blueprint('air_note',__name__)
 
 def is_to_create_table():        #这个函数用来判断表是否存在
-	conn=pymysql.Connection(host='localhost',port=3306,user='root',passwd='chis1chang',db='t1',charset='utf8')
+	conn=pymysql.Connection(host='localhost',port=13306,user='root',passwd='chis1chang',db='t1',charset='utf8')
 	cursor = conn.cursor()
 	sql = 'show tables;'
 	cursor.execute(sql)
