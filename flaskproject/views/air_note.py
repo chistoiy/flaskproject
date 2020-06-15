@@ -2,9 +2,9 @@ from flask import Flask,render_template,request,Blueprint,redirect
 import pymysql
 import re,random,string
 air_note = Blueprint('air_note',__name__)
-
+l = dict(host='localhost',port=13306,user='root',passwd='chis1@chang',db='t1',charset='utf8')
 def is_to_create_table():        #这个函数用来判断表是否存在
-	conn=pymysql.Connection(host='localhost',port=13306,user='root',passwd='chis1chang',db='t1',charset='utf8')
+	conn=pymysql.Connection(**l)
 	cursor = conn.cursor()
 	sql = 'show tables;'
 	cursor.execute(sql)
@@ -40,7 +40,7 @@ def air_subpath(pname):
 		'context':'',
 		}
 	if '/' not in pname:
-		conn=pymysql.Connection(host='localhost',port=3306,user='root',passwd='chis1chang',db='t1',charset='utf8')
+		conn=pymysql.Connection(**l)
 		cursor = conn.cursor()
 		
 		if request.method=="POST":
@@ -110,7 +110,7 @@ def air_subpath(pname):
 	else:
 		print('aaaa')
 		a,lock_path= pname.rsplit('/')
-		conn=pymysql.Connection(host='localhost',port=3306,user='root',passwd='chis1chang',db='t1',charset='utf8')
+		conn=pymysql.Connection(**l)
 		cursor = conn.cursor()
 		data = cursor.execute('select * from air_note where lock_path=%s',(lock_path))
 		data =cursor.fetchone()
