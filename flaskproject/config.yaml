@@ -1,0 +1,7 @@
+air_note:
+  host : 'localhost'
+  port : 13306
+  user : 'root'
+  passwd : 'chis1@chang'
+  db : 't1'
+  charset : 'utf8'

@@ -1,8 +1,13 @@
 from flask import Flask,render_template,request,Blueprint,redirect
 import pymysql
 import re,random,string
+import yaml,os
 air_note = Blueprint('air_note',__name__)
-l = dict(host='localhost',port=13306,user='root',passwd='chis1@chang',db='t1',charset='utf8')
+
+path = os.path.join(os.getcwd(),'config.yaml')
+f = open(path,'r')
+l = yaml.safe_load(f)['air_note']
+
 def is_to_create_table():        #这个函数用来判断表是否存在
 	conn=pymysql.Connection(**l)
 	cursor = conn.cursor()
